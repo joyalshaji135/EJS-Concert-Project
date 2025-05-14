@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100 mt-10 mb-10">
+        <div class="text-center mb-8">
+            <div class="mx-auto h-24 w-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-4xl font-bold mb-4 shadow-md">
+                <%= user.name.charAt(0).toUpperCase() %>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-800"><%= user.name %></h2>
+            <p class="text-gray-500 mt-2">Welcome to your profile</p>
+        </div>
+        
+        <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Account Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-sm text-gray-500">Email Address</p>
+                        <p class="text-gray-800 font-medium"><%= user.email %></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Member Since</p>
+                        <p class="text-gray-800 font-medium"><%= new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Account Status</p>
+                        <p class="text-gray-800 font-medium">Active <span class="ml-2 text-green-500">●</span></p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Last Login</p>
+                        <p class="text-gray-800 font-medium">Just now</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Quick Actions</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="/settings" class="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors text-center shadow-sm hover:shadow-md">
+                        <div class="text-blue-500 mb-2">
+                            <i class="fas fa-cog text-xl"></i>
+                        </div>
+                        <p class="font-medium text-gray-800">Settings</p>
+                    </a>
+                    <a href="/change-password" class="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors text-center shadow-sm hover:shadow-md">
+                        <div class="text-blue-500 mb-2">
+                            <i class="fas fa-lock text-xl"></i>
+                        </div>
+                        <p class="font-medium text-gray-800">Change Password</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-4">
+                <a href="/logout" class="flex items-center text-red-500 hover:text-red-600 font-medium transition-colors">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
+                </a>
+            </div>
+        </div>
+    </div>
+<%- include('partials/footer') %>
